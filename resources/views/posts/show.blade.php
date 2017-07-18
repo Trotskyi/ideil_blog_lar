@@ -7,11 +7,11 @@
 	<div class="row">
 		<div class="col-md-8">
 			<h1>{{ $post->title }}</h1>
-			
+
 			<p class="lead">{!! $post->body !!}</p>
 
 			<hr>
-			
+
 			<div class="tags">
 				@foreach ($post->tags as $tag)
 					<span class="label label-default">{{ $tag->name }}</span>
@@ -23,16 +23,16 @@
 
 				<table class="table">
 					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Comment</th>
-							<th width="70px"></th>
-						</tr>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Comment</th>
+						<th width="70px"></th>
+					</tr>
 					</thead>
 
 					<tbody>
-						@foreach ($post->comments as $comment)
+					@foreach ($post->comments as $comment)
 						<tr>
 							<td>{{ $comment->name }}</td>
 							<td>{{ $comment->email }}</td>
@@ -42,7 +42,7 @@
 								<a href="{{ route('comments.delete', $comment->id) }}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
 							</td>
 						</tr>
-						@endforeach
+					@endforeach
 					</tbody>
 				</table>
 			</div>

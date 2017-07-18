@@ -4,6 +4,7 @@ namespace Ideal\Http\Controllers;
 
 use Ideal\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -17,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->paginate(20);
+        $users = User::orderBy('id', 'desc')->paginate(4);
         return view('users.index')->withUsers($users);
     }
 
@@ -28,8 +29,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::all();
+
+        return view('users.create')->withUsers($user);
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -50,7 +55,7 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = $request->password ;
 
         $user->save();
 
@@ -130,6 +135,6 @@ class UserController extends Controller
         $user->delete();
 
         Session::flash('success', 'The user was successfully deleted.');
-        return redirect()->route('user.index');
+        return redirect()->route('users.index');
     }
 }

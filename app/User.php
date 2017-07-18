@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $table = 'users';
+
+    public function users()
+    {
+        return $this->hasMany('Ideal\User');
+    }
 }

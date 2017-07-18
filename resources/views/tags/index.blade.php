@@ -26,9 +26,6 @@
                         <td>{{ date('M j, Y', strtotime($tag->created_at)) }}</td>
                         <td>
                             <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-warning btn-block">Edit</a></td>
-
-
-                        </td>
                         <td>
                             {{ Form::open(['route' => ['tags.destroy', $tag->id], 'method' => 'DELETE']) }}
                             {{ Form::submit('Delete', ['class' => 'btn btn-danger btn-block', 'style' => 'font-size:12px']) }}
