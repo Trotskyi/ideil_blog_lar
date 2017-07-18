@@ -1,9 +1,9 @@
 <?php
 
-namespace Ideal\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use Ideal\User;
-use Ideal\Http\Controllers\Controller;
+use App\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -58,7 +58,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \Ideal\User
+     * @return User
      */
     protected function create(array $data)
     {

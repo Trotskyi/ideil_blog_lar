@@ -1,1 +1,0 @@
-"# ideil_blog" 
