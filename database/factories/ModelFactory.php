@@ -1,5 +1,10 @@
 <?php
 
+    use Ideal\Post;
+    use Ideal\Tag;
+    use Ideal\Category;
+    use Illuminate\Support\Str;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -12,7 +17,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(Ideal\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -22,3 +27,44 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(Ideal\Post::class, function (Faker\Generator $faker) {
+
+    $title = $faker->sentence();
+    $slug = Str::slug($title);
+
+    return [
+        'title' => $title,
+        'body' => $faker->text(140),
+        'slug' => $slug,
+        'image' => $faker->imageUrl($width = 640, $height = 480),
+        'category_id' => Category::all()->random()->id,
+
+    ];
+});
+
+
+$factory->define(Ideal\Category::class, function (Faker\Generator $faker) {
+
+    return [
+       'name' => $faker->sentence(1),
+    ];
+});
+
+$factory->define(Ideal\Tag::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->sentence(1),
+    ];
+});
+
+
+$factory->define(Ideal\PostTag::class, function (Faker\Generator $faker) {
+
+    return [
+        'post_id' => Category::all()->random()->id,
+    ];
+});
+
+
