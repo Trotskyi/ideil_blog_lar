@@ -44,7 +44,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('contact', 'PagesController@getContact');
     Route::post('contact', 'PagesController@postContact');
     Route::get('about', 'PagesController@getAbout');
-    Route::get('/', 'PagesController@getIndex');
+    Route::get('/', ['as' => 'pages.welcome', 'uses' => 'PagesController@getIndex'])->name('welcome');
     Route::resource('posts', 'PostController');
 });
 
