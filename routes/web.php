@@ -44,11 +44,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('contact', 'PagesController@getContact');
     Route::post('contact', 'PagesController@postContact');
     Route::get('about', 'PagesController@getAbout');
-    Route::get('/qaz', 'PagesController@getIndex')->name('welcome');
+    Route::get('/', 'PagesController@getIndex');
     Route::resource('posts', 'PostController');
 });
 
 
 Auth::routes();
 
-Route::get('/', 'PagesController@getIndex')->name('welcome');
+Route::get('/home', 'HomeController@index')->name('home');
