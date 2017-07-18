@@ -5,13 +5,12 @@ namespace Ideal\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Ideal\Http\Requests;
-use Ideal\Http\Controllers\Controller;
 use Ideal\Post;
 use Ideal\Tag;
 use Ideal\Category;
-use Session;
-use Purifier;
-use Image;
+use Illuminate\Support\Facades\Session;
+use Mews\Purifier\Facades\Purifier;
+use Intervention\Image\Facades\Image;
 
 
 class PostController extends Controller

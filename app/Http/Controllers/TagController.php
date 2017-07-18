@@ -3,10 +3,8 @@
 namespace Ideal\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Ideal\Http\Requests;
 use Ideal\Tag;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class TagController extends Controller
 {

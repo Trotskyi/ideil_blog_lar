@@ -4,9 +4,8 @@ namespace Ideal\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Ideal\Post;
-use Ideal\Http\Requests;
-use Mail;
-use Session;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class PagesController extends Controller {
 

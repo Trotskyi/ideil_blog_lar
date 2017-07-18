@@ -3,11 +3,9 @@
 namespace Ideal\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Ideal\Http\Requests;
 use Ideal\Comment;
 use Ideal\Post;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class CommentsController extends Controller
 {

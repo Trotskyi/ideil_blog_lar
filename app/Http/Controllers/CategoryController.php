@@ -4,9 +4,7 @@ namespace Ideal\Http\Controllers;
 
 use Ideal\Tag;
 use Illuminate\Http\Request;
-
-use Ideal\Http\Requests;
-use Session;
+use Illuminate\Support\Facades\Session;
 use Ideal\Category;
 
 class CategoryController extends Controller

@@ -3,8 +3,6 @@
 namespace Ideal\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Ideal\Http\Requests;
 use Ideal\Post;
 
 class BlogController extends Controller
