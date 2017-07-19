@@ -33,7 +33,6 @@
                 <hr>
             @endforeach
         </div>
-
         <div class="col-md-3 col-md-offset-1">
           {{--  <h2>Category</h2>--}}
         </div>
