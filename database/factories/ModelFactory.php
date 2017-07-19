@@ -40,6 +40,7 @@ $factory->define(Ideal\Post::class, function (Faker\Generator $faker) {
         'slug' => $slug,
         'image' => $faker->imageUrl($width = 640, $height = 480),
         'category_id' => Category::all()->random()->id,
+        'updated_at' => $faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
 
     ];
 });

@@ -5,6 +5,7 @@ namespace Ideal\Http\Controllers;
 use Ideal\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->paginate(4);
+        $users = User::orderBy('id', 'desc')->paginate(20);
         return view('users.index')->withUsers($users);
     }
 
@@ -55,7 +56,7 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password ;
+        $user->password = bcrypt($request['password']);
 
         $user->save();
 
@@ -108,11 +109,10 @@ class UserController extends Controller
         ));
 
         // Save the data to the database
-        $user = User::find($id);
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = bcrypt($request['password']);
 
         $user->save();
 

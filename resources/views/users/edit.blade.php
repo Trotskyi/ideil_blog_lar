@@ -27,7 +27,7 @@
             {{ Form::text('name', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '100' )) }}
 
             {{ Form::label('email', 'Email:') }}
-            {{ Form::text('email', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '100' )) }}
+            {{ Form::text('email', "$user->email", array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '100' )) }}
 
             {{ Form::label('password', 'Password:') }}
             {{ Form::password('password', array('class' => 'form-control', 'required' => '', 'minlength' => '6', 'maxlength' => '16') ) }}

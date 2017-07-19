@@ -20,18 +20,22 @@
 
                 <div class="post">
                     <h3>{{ $post->title }}</h3>
+                    <h5 style="display: inline-block">{{ date('M j, Y', strtotime($post->created_at)) }}</h5> |
+                    <a href="#">{{ $post->category->name }}</a>
+                    @if (Auth::check())
+
+                        | <a href="{{ route('posts.edit', $post->id) }}" class="test">Edit</a>
+                        | <a href="{{ route('posts.destroy', $post->id) }}" class="test">Delete</a>
+                    @endif
                     <p>{{ substr(strip_tags($post->body), 0, 300) }}{{ strlen(strip_tags($post->body)) > 300 ? "..." : "" }}</p>
                     <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary">Read More</a>
                 </div>
-
                 <hr>
-
             @endforeach
-
         </div>
 
         <div class="col-md-3 col-md-offset-1">
-            <h2>Sidebar</h2>
+          {{--  <h2>Category</h2>--}}
         </div>
     </div>
 @stop

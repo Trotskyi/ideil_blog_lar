@@ -38,7 +38,7 @@
             {{ Form::label('password_confirmation', 'Confirm Password:') }}
             {{ Form::password('password_confirmation', array('class' => 'form-control', 'required' => '', 'minlength' => '6', 'maxlength' => '16') ) }}
 
-            {{ Form::submit('Create Post', array('class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 20px;')) }}
+            {{ Form::submit('Create User', array('class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 20px;')) }}
             {!! Form::close() !!}
         </div>
     </div>

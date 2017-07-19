@@ -6,10 +6,16 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
+			<h1>{{ $post->title }}</h1>
+			<h5 style="display: inline-block">{{ date('M j, Y', strtotime($post->created_at)) }}</h5>
+			@if (Auth::check())
+
+			| <a href="{{ route('posts.edit', $post->id) }}" class="test">Edit</a>
+			| <a href="{{ route('posts.destroy', $post->id) }}" class="test">Delete</a>
+			@endif
 			@if(!empty($post->image))
 				<img src="{{asset('/images/' . $post->image)}}" width="800" height="400" />
 			@endif
-			<h1>{{ $post->title }}</h1>
 			<p>{!! $post->body !!}</p>
 			<hr>
 			<p>Posted In: {{ $post->category->name }}</p>
